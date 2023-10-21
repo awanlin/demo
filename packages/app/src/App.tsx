@@ -1,7 +1,7 @@
 import * as plugins from './plugins';
 
 import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
-import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
+import { AppRouter, FeatureFlagged, FlatRoutes } from '@backstage/core-app-api';
 import {
   CatalogEntityPage,
   CatalogIndexPage,
@@ -17,7 +17,7 @@ import {
   CostInsightsProjectGrowthInstructionsPage,
 } from '@backstage/plugin-cost-insights';
 import { ExplorePage } from '@backstage/plugin-explore';
-import { Navigate, Route } from 'react-router';
+import { Route } from 'react-router';
 import {
   TechDocsIndexPage,
   TechDocsReaderPage,
@@ -39,6 +39,9 @@ import { entityPage } from './components/catalog/EntityPage';
 import { orgPlugin } from '@backstage/plugin-org';
 import { searchPage } from './components/search/SearchPage';
 import { CssBaseline } from '@material-ui/core';
+import { HomepageCompositionRoot, VisitListener } from '@backstage/plugin-home';
+import { HomePage } from './components/home/HomePage';
+import { CustomizableHomePage } from './components/home/CustomizableHomePage';
 
 const app = createApp({
   apis,
@@ -87,7 +90,16 @@ const app = createApp({
 
 const routes = (
   <FlatRoutes>
-    <Navigate key="/" to="catalog" replace />
+    <FeatureFlagged with="customizable-home-page-preview">
+      <Route path="/" element={<HomepageCompositionRoot />}>
+        <CustomizableHomePage />
+      </Route>
+    </FeatureFlagged>
+    <FeatureFlagged without="customizable-home-page-preview">
+      <Route path="/" element={<HomepageCompositionRoot />}>
+        <HomePage />
+      </Route>
+    </FeatureFlagged>
     <Route path="/api-docs" element={<ApiExplorerPage />} />
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
@@ -129,6 +141,7 @@ export default app.createRoot(
     <AlertDisplay />
     <OAuthRequestDialog />
     <AppRouter>
+      <VisitListener />
       <Root>{routes}</Root>
     </AppRouter>
   </>,

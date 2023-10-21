@@ -20,9 +20,11 @@ import {
   errorApiRef,
   configApiRef,
   AnyApiFactory,
+  identityApiRef,
 } from '@backstage/core-plugin-api';
 
 import { GithubAuth } from '@backstage/core-app-api';
+import { visitsApiRef, VisitsWebStorageApi } from '@backstage/plugin-home';
 
 export const apis: AnyApiFactory[] = [
   createApiFactory({
@@ -75,4 +77,12 @@ export const apis: AnyApiFactory[] = [
       ]),
   }),
   createApiFactory(costInsightsApiRef, new ExampleCostInsightsClient()),
+  createApiFactory({
+    api: visitsApiRef,
+    deps: {
+      identityApi: identityApiRef,
+      errorApi: errorApiRef
+    },
+    factory: ({ identityApi, errorApi }) => VisitsWebStorageApi.create({ identityApi, errorApi }),
+  }),
 ];
