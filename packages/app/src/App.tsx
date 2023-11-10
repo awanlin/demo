@@ -91,17 +91,17 @@ const app = createApp({
 const routes = (
   <FlatRoutes>
     <FeatureFlagged with="customizable-home-page-preview">
-      <Route path="/" element={<HomepageCompositionRoot />}>
+      <Route path="/home" element={<HomepageCompositionRoot />}>
         <CustomizableHomePage />
       </Route>
     </FeatureFlagged>
     <FeatureFlagged without="customizable-home-page-preview">
-      <Route path="/" element={<HomepageCompositionRoot />}>
+      <Route path="/home" element={<HomepageCompositionRoot />}>
         <HomePage />
       </Route>
     </FeatureFlagged>
     <Route path="/api-docs" element={<ApiExplorerPage />} />
-    <Route path="/catalog" element={<CatalogIndexPage initiallySelectedFilter='all' />} />
+    <Route path="/" element={<CatalogIndexPage initiallySelectedFilter='all' />} />
     <Route
       path="/catalog/:namespace/:kind/:name"
       element={<CatalogEntityPage />}

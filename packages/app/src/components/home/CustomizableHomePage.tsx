@@ -2,7 +2,6 @@ import { Page, Content } from '@backstage/core-components';
 import {
   HomePageCompanyLogo,
   TemplateBackstageLogo,
-  TemplateBackstageLogoIcon,
   HomePageStarredEntities,
   HomePageToolkit,
   CustomHomepageGrid,
@@ -11,27 +10,9 @@ import {
   HomePageRecentlyVisited,
 } from '@backstage/plugin-home';
 import { HomePageSearchBar } from '@backstage/plugin-search';
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React from 'react';
-
-const useLogoStyles = makeStyles(theme => ({
-  container: {
-    margin: theme.spacing(5, 0),
-  },
-  svg: {
-    width: 'auto',
-    height: 100,
-  },
-  path: {
-    fill: '#7df3e1',
-  },
-}));
-
-const tools = Array(4).fill({
-  url: '#',
-  label: 'link',
-  icon: <TemplateBackstageLogoIcon />,
-});
+import { tools, useLogoStyles } from './shared';
 
 const defaultConfig = [
   {
@@ -44,29 +25,29 @@ const defaultConfig = [
   {
     component: 'HomePageRecentlyVisited',
     x: 0,
-    y: 2,
-    width: 16,
+    y: 1,
+    width: 5,
     height: 4,
   },
   {
     component: 'HomePageTopVisited',
-    x: 6,
+    x: 5,
+    y: 1,
+    width: 5,
+    height: 4,
+  },
+  {
+    component: 'HomePageStarredEntities',
+    x: 0,
     y: 2,
-    width: 16,
+    width: 6,
     height: 4,
   },
   {
     component: 'HomePageToolkit',
     x: 6,
-    y: 2,
-    width: 16,
-    height: 4,
-  },
-  {
-    component: 'HomePageStarredEntities',
-    x: 6,
-    y: 2,
-    width: 16,
+    y: 6,
+    width: 4,
     height: 4,
   },
 ];

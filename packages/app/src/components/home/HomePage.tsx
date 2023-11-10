@@ -2,7 +2,6 @@ import { Page, Content } from '@backstage/core-components';
 import {
   HomePageCompanyLogo,
   TemplateBackstageLogo,
-  TemplateBackstageLogoIcon,
   HomePageStarredEntities,
   HomePageToolkit,
   HomePageTopVisited,
@@ -12,6 +11,7 @@ import { HomePageSearchBar } from '@backstage/plugin-search';
 import { SearchContextProvider } from '@backstage/plugin-search-react';
 import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
+import { tools, useLogoStyles } from './shared';
 
 const useStyles = makeStyles(theme => ({
   searchBarInput: {
@@ -26,19 +26,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const useLogoStyles = makeStyles(theme => ({
-  container: {
-    margin: theme.spacing(5, 0),
-  },
-  svg: {
-    width: 'auto',
-    height: 100,
-  },
-  path: {
-    fill: '#7df3e1',
-  },
-}));
-
 export const HomePage = () => {
   const classes = useStyles();
   const { svg, path, container } = useLogoStyles();
@@ -47,7 +34,7 @@ export const HomePage = () => {
     <SearchContextProvider>
       <Page themeId="home">
         <Content>
-          <Grid container justifyContent="center" spacing={6}>
+          <Grid container justifyContent="center" spacing={2}>
             <HomePageCompanyLogo
               className={container}
               logo={<TemplateBackstageLogo classes={{ svg, path }} />}
@@ -72,17 +59,11 @@ export const HomePage = () => {
               </Grid>
             </Grid>
             <Grid container item xs={12}>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={7}>
                 <HomePageStarredEntities />
               </Grid>
-              <Grid item xs={12} md={6}>
-                <HomePageToolkit
-                  tools={Array(8).fill({
-                    url: '#',
-                    label: 'link',
-                    icon: <TemplateBackstageLogoIcon />,
-                  })}
-                />
+              <Grid item xs={5}>
+                <HomePageToolkit tools={tools} />
               </Grid>
             </Grid>
           </Grid>
