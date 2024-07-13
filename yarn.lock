@@ -5407,6 +5407,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/plugin-permission-backend@npm:^0.5.46-next.1":
+  version: 0.5.46-next.1
+  resolution: "@backstage/plugin-permission-backend@npm:0.5.46-next.1"
+  dependencies:
+    "@backstage/backend-common": ^0.23.3-next.1
+    "@backstage/backend-plugin-api": ^0.6.22-next.1
+    "@backstage/config": ^1.2.0
+    "@backstage/errors": ^1.2.4
+    "@backstage/plugin-auth-node": ^0.4.17-next.1
+    "@backstage/plugin-permission-common": ^0.7.14
+    "@backstage/plugin-permission-node": ^0.7.33-next.1
+    "@types/express": "*"
+    dataloader: ^2.0.0
+    express: ^4.17.1
+    express-promise-router: ^4.1.0
+    lodash: ^4.17.21
+    node-fetch: ^2.6.7
+    yn: ^4.0.0
+    zod: ^3.22.4
+  checksum: 5634fbb159791e1cdecb79b110987a2aad873f71e180fb9d854de8325e11d8c5aa944f57c6e9afc8676e38ac3c07ea12d9cf6c7b5080a4b0cb926b9a8f232082
+  languageName: node
+  linkType: hard
+
 "@backstage/plugin-permission-common@npm:^0.7.14":
   version: 0.7.14
   resolution: "@backstage/plugin-permission-common@npm:0.7.14"
@@ -14815,13 +14838,18 @@ __metadata:
     "@backstage/plugin-auth-backend": ^0.22.9-next.1
     "@backstage/plugin-auth-backend-module-github-provider": ^0.1.19-next.1
     "@backstage/plugin-auth-backend-module-guest-provider": ^0.1.8-next.1
+    "@backstage/plugin-auth-node": ^0.4.17-next.1
     "@backstage/plugin-catalog-backend": ^1.24.0-next.1
     "@backstage/plugin-catalog-backend-module-logs": ^0.0.1-next.1
     "@backstage/plugin-catalog-backend-module-scaffolder-entity-model": ^0.1.20-next.1
     "@backstage/plugin-kubernetes-backend": ^0.18.3-next.1
+    "@backstage/plugin-permission-backend": ^0.5.46-next.1
+    "@backstage/plugin-permission-common": ^0.7.14
+    "@backstage/plugin-permission-node": ^0.7.33-next.1
     "@backstage/plugin-proxy-backend": ^0.5.3-next.1
     "@backstage/plugin-scaffolder-backend": ^1.23.0-next.2
     "@backstage/plugin-scaffolder-backend-module-github": ^0.4.0-next.1
+    "@backstage/plugin-scaffolder-common": ^1.5.3
     "@backstage/plugin-search-backend": ^1.5.14-next.1
     "@backstage/plugin-search-backend-module-catalog": ^0.1.28-next.1
     "@backstage/plugin-search-backend-module-explore": ^0.1.28-next.1

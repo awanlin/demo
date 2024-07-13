@@ -15,7 +15,9 @@ export default createBackendModule({
       async init({ techdocs }) {
         const docsBuildStrategy: DocsBuildStrategy = {
           shouldBuild: async params =>
-            params.entity.metadata?.annotations?.['demo.backstage.io/techdocs-builder'] === 'local',
+            params.entity.metadata?.annotations?.[
+              'demo.backstage.io/techdocs-builder'
+            ] === 'local',
         };
 
         techdocs.setBuildStrategy(docsBuildStrategy);
