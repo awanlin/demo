@@ -1,6 +1,5 @@
-import React from 'react';
 import { render, waitFor } from '@testing-library/react';
-import App from './App';
+import app from './App';
 import { v4 } from 'uuid';
 
 describe('App', () => {
@@ -34,7 +33,7 @@ describe('App', () => {
       ] as any,
     };
 
-    const rendered = render(<App />);
+    const rendered = render(app);
     await waitFor(() => {
       expect(rendered.baseElement).toBeInTheDocument();
     });

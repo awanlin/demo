@@ -24,7 +24,7 @@ import {
   EntityProvidedApisCard,
   EntityProvidingComponentsCard,
 } from '@backstage/plugin-api-docs';
-import { EntityBadgesDialog } from '@backstage-community/plugin-badges';
+// import { EntityBadgesDialog } from '@backstage-community/plugin-badges';
 import {
   EntityAboutCard,
   EntityDependsOnComponentsCard,
@@ -65,28 +65,36 @@ import {
   isKubernetesAvailable,
 } from '@backstage/plugin-kubernetes';
 
+// const EntityLayoutWrapper = (props: { children?: React.ReactNode }) => {
+//   const [badgesDialogOpen, setBadgesDialogOpen] = useState(false);
+
+//   const extraMenuItems = useMemo(() => {
+//     return [
+//       {
+//         title: 'Badges',
+//         Icon: BadgeIcon,
+//         onClick: () => setBadgesDialogOpen(true),
+//       },
+//     ];
+//   }, []);
+
+//   return (
+//     <>
+//       <EntityLayout UNSTABLE_extraContextMenuItems={extraMenuItems}>
+//         {props.children}
+//       </EntityLayout>
+//       <EntityBadgesDialog
+//         open={badgesDialogOpen}
+//         onClose={() => setBadgesDialogOpen(false)}
+//       />
+//     </>
+//   );
+// };
+
 const EntityLayoutWrapper = (props: { children?: React.ReactNode }) => {
-  const [badgesDialogOpen, setBadgesDialogOpen] = useState(false);
-
-  const extraMenuItems = useMemo(() => {
-    return [
-      {
-        title: 'Badges',
-        Icon: BadgeIcon,
-        onClick: () => setBadgesDialogOpen(true),
-      },
-    ];
-  }, []);
-
   return (
     <>
-      <EntityLayout UNSTABLE_extraContextMenuItems={extraMenuItems}>
-        {props.children}
-      </EntityLayout>
-      <EntityBadgesDialog
-        open={badgesDialogOpen}
-        onClose={() => setBadgesDialogOpen(false)}
-      />
+      <EntityLayout>{props.children}</EntityLayout>
     </>
   );
 };

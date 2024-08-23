@@ -35,6 +35,11 @@ import CategoryIcon from '@material-ui/icons/Category';
 import { MyGroupsSidebarItem } from '@backstage/plugin-org';
 import GroupIcon from '@material-ui/icons/People';
 import { NotificationsSidebarItem } from '@backstage/plugin-notifications';
+import {
+  coreExtensionData,
+  createExtension,
+  NavLogoBlueprint,
+} from '@backstage/frontend-plugin-api';
 
 const useSidebarLogoStyles = makeStyles<Theme, { themeId: string }>({
   root: {
@@ -115,3 +120,42 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
     {children}
   </SidebarPage>
 );
+
+export const nav = createExtension({
+  namespace: 'app',
+  name: 'nav',
+  attachTo: { id: 'app/layout', input: 'nav' },
+  output: [coreExtensionData.reactElement],
+  factory({ inputs }) {
+    return [
+      coreExtensionData.reactElement(
+        <Sidebar>
+          <SidebarLogo
+            {...inputs.logos?.get(NavLogoBlueprint.dataRefs.logoElements)}
+          />
+          <SidebarDivider />
+          <SidebarItem icon={HomeIcon} to="home" text="Home" />
+          <SidebarItem icon={CategoryIcon} to="/" text="Catalog" />
+          <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
+          <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
+          <SidebarItem
+            icon={CreateComponentIcon}
+            to="create"
+            text="Create..."
+          />
+          <SidebarItem icon={LayersIcon} to="explore" text="Explore" />
+          <SidebarDivider />
+          <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
+          <SidebarItem
+            icon={MoneyIcon}
+            to="cost-insights"
+            text="Cost Insights"
+          />
+          <SidebarItem icon={GraphiQLIcon} to="graphiql" text="GraphiQL" />
+          <SidebarSpace />
+          <SidebarDivider />
+        </Sidebar>,
+      ),
+    ];
+  },
+});

@@ -4280,6 +4280,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backstage/frontend-app-api@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "@backstage/frontend-app-api@npm:0.8.0"
+  dependencies:
+    "@backstage/config": ^1.2.0
+    "@backstage/core-app-api": ^1.14.2
+    "@backstage/core-components": ^0.14.10
+    "@backstage/core-plugin-api": ^1.9.3
+    "@backstage/errors": ^1.2.4
+    "@backstage/frontend-plugin-api": ^0.7.0
+    "@backstage/theme": ^0.5.6
+    "@backstage/types": ^1.1.1
+    "@backstage/version-bridge": ^1.0.8
+    "@material-ui/core": ^4.12.4
+    "@material-ui/icons": ^4.11.3
+    "@types/react": ^16.13.1 || ^17.0.0 || ^18.0.0
+    lodash: ^4.17.21
+  peerDependencies:
+    react: ^16.13.1 || ^17.0.0 || ^18.0.0
+    react-router-dom: 6.0.0-beta.0 || ^6.3.0
+  checksum: 24e7774aa28a99be4f6ecb6102227fe6009a1dffb0ac8a43d9ed24a32538c4e46a2614433e4baf8726d3600bbb8d09a252064cd08694f7609de9a4f346b1ab2c
+  languageName: node
+  linkType: hard
+
 "@backstage/frontend-plugin-api@npm:^0.6.7":
   version: 0.6.7
   resolution: "@backstage/frontend-plugin-api@npm:0.6.7"
@@ -14500,11 +14524,13 @@ __metadata:
     "@backstage-community/plugin-graphiql": ^0.3.9
     "@backstage-community/plugin-tech-radar": ^0.7.6
     "@backstage-community/plugin-todo": ^0.2.40
-    "@backstage/app-defaults": ^1.5.10
     "@backstage/cli": ^0.27.0
     "@backstage/core-app-api": ^1.14.2
+    "@backstage/core-compat-api": ^0.2.8
     "@backstage/core-components": ^0.14.10
     "@backstage/core-plugin-api": ^1.9.3
+    "@backstage/frontend-app-api": ^0.8.0
+    "@backstage/frontend-plugin-api": ^0.7.0
     "@backstage/integration-react": ^1.1.30
     "@backstage/plugin-api-docs": ^0.11.8
     "@backstage/plugin-catalog": ^1.22.0
@@ -29255,7 +29281,9 @@ __metadata:
   resolution: "root@workspace:."
   dependencies:
     "@backstage/cli": ^0.27.0
+    "@backstage/core-compat-api": ^0.2.8
     "@backstage/e2e-test-utils": ^0.1.1
+    "@backstage/frontend-app-api": ^0.8.0
     "@playwright/test": ^1.32.3
     "@spotify/prettier-config": ^15.0.0
     "@types/lodash": ^4.14.202
