@@ -9,6 +9,6 @@ export interface Config {
      *
      * @visibility frontend
      */
-    enabled: boolean;
+    enabled?: boolean;
   };
 }
